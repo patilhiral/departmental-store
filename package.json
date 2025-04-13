@@ -1,0 +1,21 @@
+{
+  "name": "departmental-store",
+  "version": "1.0.0",
+  "description": "this will be our backend service for departmental store",
+  "main": "index.js",
+  "author": "Hiral",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon src/index.js"
+  },
+  "dependencies": {
+    "fastify": "5.2.2",
+    "fastify-plugin": "5.0.1",
+    "pg": "8.14.1"
+  },
+  "devDependencies": {
+    "dotenv": "16.5.0",
+    "nodemon": "3.1.9"
+  }
+}

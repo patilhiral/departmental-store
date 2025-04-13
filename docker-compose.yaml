@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+  department-db:
+    image: "postgres:14.0"
+    ports:
+      - "5454:5432"
+    deploy:
+      mode: replicated
+      replicas: 1
+    environment:
+      POSTGRES_USER: "department_db_user"
+      POSTGRES_PASSWORD: "department_db_password"
+      POSTGRES_DB: "department_db"
+    volumes:
+      - ./db-data/department-db/:/var/lib/postgresql/data
