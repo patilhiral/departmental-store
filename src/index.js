@@ -6,6 +6,7 @@ const fastify = Fastify({
 });
 //Register routes
 userRoutes(fastify);
+
 const start = async () => {
   try {
     await fastify.listen({ port: 9000 });
