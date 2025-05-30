@@ -1,7 +1,7 @@
 const userRepository = (query) => ({
-  createUser: async (name, email, password, role) => {
+  createUser: async (name, email, password, role = "user") => {
     const res = await query(
-      "INSERT into users (name,email,passoword,role) VALUE ($1,$2,$3,$4) RETURN *",
+      "INSERT into users (name,email,passoword,role) VALUES ($1,$2,$3,$4) RETURN *",
       [name, email, password, role]
     );
     return res.rows[0];
@@ -33,29 +33,4 @@ const userRepository = (query) => ({
   },
 });
 
-export const createUser = async () => {
-  return {
-    user: {
-      id: 1,
-      name: "John Doe",
-      email: "johndoe@example.com",
-    },
-  };
-};
-
-export const getAllUsers = async () => {
-  return [{ id: 1, name: "John Doe", email: "johndoe@example.com" }];
-};
-
-export const getUserById = async () => {
-  return { id: 1, name: "John Doe", email: "johndoe@example.com" };
-};
-export const updateUser = async () => {
-  return { id: 1, name: "John Doe", email: "johndoe@example.com" };
-};
-export const deleteUser = async () => {
-  return true;
-};
-export const findUserByEmail = async () => {
-  return { id: 1, name: "John Doe", email: "johndoe@example.com" };
-};
+expo;

@@ -1,6 +1,5 @@
-import * as userController from "../controller/user.controller.js";
-
 const userRoutes = (fastify, options) => {
+  const { userController } = options;
   fastify.post(
     "/users",
     {
