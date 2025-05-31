@@ -1,10 +1,9 @@
 import Fastify from "fastify";
 import userRoutes from "./routes/user.routes.js";
-import { query } from "./db";
+import { query } from "./db/dbOperation.js";
 import createUserRepository from "./repositories/user.repository.js";
 import createUserService from "./services/user.service.js";
 import CreateUserController from "./controller/user.controller.js";
-import userController from "./controller/user.controller.js";
 
 const fastify = Fastify({
   logger: true,

@@ -20,7 +20,7 @@ const userService = (UserRespository) => ({
     return user;
   },
   userLogin: async (email) => {
-    const user = await UserRespository.findUserByEmail(email);
+    const user = await UserRespository.userLogin(email);
     return user;
   },
 });

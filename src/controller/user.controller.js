@@ -1,10 +1,10 @@
-const userController = (userService) => ({
+const userController = (UserService) => ({
   createUser: async (request, reply) => {
     const { name, email, password } = request.body;
     //vaidation
+    console.log("Creating user with data:", { name, email, password });
 
     const newUser = {
-      id: Date.now(),
       name,
       email,
       password,
@@ -32,6 +32,7 @@ const userController = (userService) => ({
   updateUser: async (request, reply) => {
     const { id } = request.params;
     const { name, email, password } = request.body;
+    console.log(id, name, email, password);
     const user = await UserService.updateUser(id, { name, email, password });
     if (!user) {
       reply.status(404).send({ message: "User not found" });
@@ -50,7 +51,7 @@ const userController = (userService) => ({
   },
   findUserByEmail: async (request, reply) => {
     const { email } = request.params;
-    const user = await UserService.findUserByEmail(email);
+    const user = await UserService.userLogin(email);
     if (!user) {
       reply.status(404).send({ message: "User not found" });
     } else {
@@ -60,12 +61,12 @@ const userController = (userService) => ({
   userLogin: async (request, reply) => {
     const { email, password } = request.body;
     const user = {
-      id: Date.now(),
       email,
       password,
     };
     const responseData = await UserService.userLogin(user);
     if (responseData) {
+      reply.status(200).send(responseData);
     } else {
       reply.status(401).send({ message: "Invalid credentials" });
     }

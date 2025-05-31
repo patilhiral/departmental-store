@@ -18,9 +18,9 @@ const userRoutes = (fastify, options) => {
     userController.createUser
   );
   fastify.get("/users", userController.getAllUsers);
-  fastify.get("/users/:userId", userController.getUserById);
-  fastify.patch("/users/:userId", userController.updateUser);
-  fastify.delete("/users/:userId", userController.deleteUser);
+  fastify.get("/users/:id", userController.getUserById);
+  fastify.patch("/users/:id", userController.updateUser);
+  fastify.delete("/users/:id", userController.deleteUser);
   fastify.post("/users/login", userController.userLogin);
 };
 export default userRoutes;

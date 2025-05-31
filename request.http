@@ -9,21 +9,21 @@ Content-Type: application/json
 
 {
     "name":"hiral",
-    "email":"test@test.com",
+    "email":"test2@test.com",
     "password":"test1234"
 }
 
 ###
-PATCH  http://localhost:9000/users/1
+PATCH  http://localhost:9000/users/5
 Content-Type:  application/json
 
 {
-    "name":"hiral",
-    "email":"test@test.com",
+    "name":"hiral1234",
+    "email":"test1@test.com",
     "password":"test1234"
 }
 ###
-DELETE http://localhost:9000/users/1
+DELETE http://localhost:9000/users/7
 Accept: application/json
 ###
 POST http://localhost:9000/users/login
