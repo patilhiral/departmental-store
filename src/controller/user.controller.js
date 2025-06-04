@@ -14,7 +14,7 @@ const userController = (UserService) => ({
       reply.status(500).send({ message: "Internal Server Error" });
     }
 
-    reply.status(201).send(newUser);
+    reply.status(201).send(responseData);
   },
   getAllUsers: async (request, reply) => {
     const users = await UserService.getAllUsers();
